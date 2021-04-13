@@ -8,7 +8,10 @@ import Login from "./components/Login/Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import Payment from "./components/Payment/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const promise = loadStripe("pk_test_51IfoJCSDFSYimKudw4TYmdZtU5shtlbgTDAxhVmCBoHwm0Djx4RH2NRd0a9M6yoFX8o9qhkH6esNToHPgB8oVK0w00QC81O19t");
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -24,7 +27,7 @@ function App() {
         dispatch({ type: "SET_USER", user: null});
       }
     })
-  }, []);
+  }, [dispatch]);
   return (
     <Router>
       <div className="App">
@@ -42,7 +45,10 @@ function App() {
           </Route>
           <Route>
             <Header />
-            <Payment />
+            {/* higher order element wraps Payment element */}
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
         </Switch>
       </div>
