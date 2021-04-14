@@ -41,7 +41,7 @@ const Payment = () => {
         setProcessing(true); // once user clicks enter the button will be disabled to prevent them from hitting it more than once
 
         // clientSecret is essential it will let stripe now how much we are going to charge
-        // the payment method is by card and we get card by the CardElement we used in the form below
+        // the payment method is by card and we get card by the CardElement we used in the form below that render our card 
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: { card: elements.getElement(CardElement)}
         })
@@ -49,14 +49,14 @@ const Payment = () => {
             // we get response as it is a promise and we distructure it
             // paymentIntent = payment confirmation
 
-            setSucceeded(true);
-            setError(null);
-            setProcessing(false);
+            setSucceeded(true);// everything is ok since we are in then(), transaction was successfull
+            setError(null);// no error
+            setProcessing(false);// transaction is completed don't show processing
 
             // when we push user to another page they can get back to previous page by clicking back button
             // but we don't want that when user makes payment
             history.replace('/orders');
-        })
+        });
     }
 
     const handleChange = (e) => {
