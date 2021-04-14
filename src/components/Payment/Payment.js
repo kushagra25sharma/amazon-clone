@@ -7,6 +7,8 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../../reducer";
 import axios from "../../axios";
+import { db } from "../../firebase";
+
 
 const Payment = () => {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -35,6 +37,9 @@ const Payment = () => {
         getClientSecret();
     }, [basket]);
 
+    console.log(">>>>>> ",clientSecret);
+    console.log("buyer -> ",user)
+
     const handleSubmit = async (e) => {
         // all fancy stripe stuff here
         e.preventDefault();
@@ -43,11 +48,18 @@ const Payment = () => {
         // clientSecret is essential it will let stripe now how much we are going to charge
         // the payment method is by card and we get card by the CardElement we used in the form below that render our card 
         const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: { card: elements.getElement(CardElement)}
+            payment_method: { card: elements.getElement(CardElement) }
         })
         .then(({ paymentIntent }) => {
             // we get response as it is a promise and we distructure it
             // paymentIntent = payment confirmation
+            console.log(paymentIntent);
+            
+            // db.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent?.id).set({
+            //     basket: basket,
+            //     amount: paymentIntent?.amount,
+            //     created: paymentIntent?.created
+            // });
 
             setSucceeded(true);// everything is ok since we are in then(), transaction was successfull
             setError(null);// no error

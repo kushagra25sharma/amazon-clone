@@ -30,6 +30,9 @@ app.post("/payments/create", async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
         currency: "usd",
+        description: "transfer",
+        name: "lala",
+        adddress: {city: "gotham"},
     });
 
     res.status(201).send({clientSecret: paymentIntent.client_secret});
@@ -37,4 +40,3 @@ app.post("/payments/create", async (req, res) => {
 
 // Listen command
 exports.api = functions.https.onRequest(app);
-// http://localhost:5001/clone-84dd3/us-central/api
