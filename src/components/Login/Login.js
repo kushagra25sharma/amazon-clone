@@ -20,7 +20,7 @@ const Login = () => {
     const signUp = (e) => {
         e.preventDefault();
         auth.createUserWithEmailAndPassword(email, password).then((auth) =>{
-            console.log(auth);
+            //console.log(auth);
             if(auth){
                 history.push("/");
             }

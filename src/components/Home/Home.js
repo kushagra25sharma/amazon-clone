@@ -2,7 +2,6 @@ import "./Home.css";
 import Product from "../Product/Product";
 import { Button } from "@material-ui/core";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 
 const Home = () => {
     return (
