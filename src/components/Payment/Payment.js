@@ -37,8 +37,8 @@ const Payment = () => {
         getClientSecret();
     }, [basket]);
 
-    console.log(">>>>>> ",clientSecret);
-    console.log("buyer -> ",user)
+    // console.log(">>>>>> ",clientSecret);
+    // console.log("buyer -> ",user);
 
     const handleSubmit = async (e) => {
         // all fancy stripe stuff here
@@ -48,18 +48,31 @@ const Payment = () => {
         // clientSecret is essential it will let stripe now how much we are going to charge
         // the payment method is by card and we get card by the CardElement we used in the form below that render our card 
         const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: { card: elements.getElement(CardElement) }
+            payment_method: { 
+                card: elements.getElement(CardElement),
+                billing_details: {
+                    address: {
+                        city: "Gotham",
+                        country: "US",
+                        line1: "Wayne",
+                        line2: "Street",
+                        state: "CA",
+                    },
+                    email: user.email,
+                    name: "Bruce",
+                }
+            },
         })
         .then(({ paymentIntent }) => {
             // we get response as it is a promise and we distructure it
             // paymentIntent = payment confirmation
             console.log(paymentIntent);
             
-            // db.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent?.id).set({
-            //     basket: basket,
-            //     amount: paymentIntent?.amount,
-            //     created: paymentIntent?.created
-            // });
+            db.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent?.id).set({
+                basket: basket,
+                amount: paymentIntent?.amount,
+                created: paymentIntent?.created
+            });
 
             setSucceeded(true);// everything is ok since we are in then(), transaction was successfull
             setError(null);// no error
@@ -117,8 +130,9 @@ const Payment = () => {
                                     decimalScale={2}
                                     value={getBasketTotal(basket)}
                                     displayType={"text"}
-                                    thosandSeparator={true}
-                                    prefix={"$"}
+                                    thousandSpacing={"2s"}
+                                    thousandSeparator={true}
+                                    prefix={"₹"}
                                 />
                             </div>
                             <button disabled={processing || disabled || succeeded}>

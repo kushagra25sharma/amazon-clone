@@ -1,46 +1,48 @@
 import "./Home.css";
 import Product from "../Product/Product";
 import { Button } from "@material-ui/core";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const Home = () => {
     return (
         <div className="home">
             <div id="home__top" className="home__container">
-                <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
+               <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
 
                 <div className="home__row">
-                    <Product id={1} image="https://m.media-amazon.com/images/I/81vvgZqCskL._AC_UY218_.jpg" title="The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses Hardcover – Illustrated, 13 September 2011" price={50.09} rating={3} />
-                    <Product id={21} image="https://images-na.ssl-images-amazon.com/images/I/719ZywAmvOL._SL1500_.jpg" title="Mi Smart Band 5 – India’s No. 1 Fitness Band, 1.1-inch AMOLED Color Display, Magnetic Charging, 2 Weeks Battery pfe, Personal Activity Intelpgence (PAI), Women’s Health Tracking" price={356.67} rating={3} />
+                    <Product id={1} image="https://m.media-amazon.com/images/I/81vvgZqCskL._AC_UY218_.jpg" title="The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses Hardcover – Illustrated, 13 September 2011" price={1050.09} rating={3} />
+                    <Product id={21} image="https://images-na.ssl-images-amazon.com/images/I/719ZywAmvOL._SL1500_.jpg" title="Mi Smart Band 5 – India’s No. 1 Fitness Band, 1.1-inch AMOLED Color Display, Magnetic Charging, 2 Weeks Battery pfe, Personal Activity Intelpgence (PAI), Women’s Health Tracking" price={3056.67} rating={3} />
                 </div>
 
                 <div className="home__row">
-                    <Product id={35} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-1_186x116._SY116_CB430773131_.jpg" price={167.38} rating={4} />
-                    <Product id={488} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-4_186x116._SY116_CB430773130_.jpg" price={540.98} rating={5} />
-                    <Product id={58} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-2_186x116._SY116_CB430773130_.jpg" price={120.98} rating={4} />
-                    <Product id={54} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-3_186x116._SY116_CB430773130_.jpg" price={50.98} rating={3} />
-                    <Product id={35} image="https://m.media-amazon.com/images/I/41xxbUNPobL.__AC_SY200_.jpg" price={1007.38} rating={5} />
+                    <Product id={488} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-4_186x116._SY116_CB430773130_.jpg" title="Amazon Brand - Solimo 3-Door Foldable Wardrobe, 10 Racks, Brown"  price={15400.98} rating={5} />
+                    <Product id={58} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-2_186x116._SY116_CB430773130_.jpg" title="Amazon Brand - Solimo Wall Sticker for Living Room (Birdie House, Ideal Size on Wall - 133 cm x 90 cm)"  price={2120.98} rating={4} />
+                    <Product id={54} image="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/GW/2-3_186x116._SY116_CB430773130_.jpg" title="Amazon Brand - Solimo Wi-Fi Smart Light, 9W, B22 Holder, Alexa Enabled (Yellow/Light Yellow/White)" price={565.98} rating={3} />
+                    <Product id={35} image="https://m.media-amazon.com/images/I/41xxbUNPobL.__AC_SY200_.jpg" title="ASUS (AMD Ryzen 5-3550H/8GB/1TB HDD/Windows 10/Radeon RX 560X 4GB Graphics/2.20 Kg), Black" price={81007.38} rating={5} />
+                    
                 </div>
 
                 <div className="home__row">
-                    <Product id={351} image="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/3._SY116_CB656503003_.jpg" price={297.38} rating={3} />
-                    <Product id={4828} image="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/4._SY116_CB656503003_.jpg" title="Godrej 190 L 5 Star Inverter Direct-Cool Single Door Refrigerator (RD 1905 PTDI 53 GL BL, Glass Blue, Base stand with drawer, Inverter Compressor)" price={414.58} rating={4} />
-                    <Product id={5444545} image="https://m.media-amazon.com/images/I/41j6GUixh4L._AC_SY200_.jpg" title="Men's CRI Hase Cricket Shoe" price={90.98} rating={3} />
+                    <Product id={351} image="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/3._SY116_CB656503003_.jpg" title="Analog Black Dial Men's Watch 1834NL01/NN1834NL01" price={5297.38} rating={3} />
+                    <Product id={4828} image="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/4._SY116_CB656503003_.jpg" title="Prisma 55 Cms Polyester Blue Cabin 4 wheels Soft Suitcase" price={3414.58} rating={4} />
+                    <Product id={5444545} image="https://m.media-amazon.com/images/I/41j6GUixh4L._AC_SY200_.jpg" title="Amazon Brand - Solimo Non-Washable N95 Anti-Pollution Mask, Set of 5" price={190.98} rating={3} />
                 </div>
 
                 <div className="home__row">
-                    <Product id={6001000} image="https://images-na.ssl-images-amazon.com/images/I/71wLo66xDUL._SL1500_.jpg" title="Sony Bravia 138.8 cm (55 inches) 4K Ultra HD Smart LED TV KD-55X7002G (Black) (2019 Model)" price={1185.18} rating={5} />
+                    <Product id={6001000} image="https://images-na.ssl-images-amazon.com/images/I/71wLo66xDUL._SL1500_.jpg" title="Sony Bravia 138.8 cm (55 inches) 4K Ultra HD Smart LED TV KD-55X7002G (Black) (2019 Model)" price={201185.18} rating={5} />
                 </div>
 
                 <div className="home__row">
-                    <Product id={345} image="https://m.media-amazon.com/images/I/41WiLcYLlrL.__AC_SY200_.jpg" title="Cadbury Dairy Milk Silk Chocolate Bar, 150g (Pack of 3)" price={107.38} rating={3} />
-                    <Product id={4838} image="https://m.media-amazon.com/images/I/51ivRBHcH6L.__AC_SY200_.jpg" title="Godrej 190 L 5 Star Inverter Direct-Cool Single Door Refrigerator (RD 1905 PTDI 53 GL BL, Glass Blue, Base stand with drawer, Inverter Compressor)" price={100.28} rating={4} />
-                    <Product id={5424445} image="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Biss/2020/GW/PSS_260x260._SY304_CB429046195_.jpg" title="Men's CRI Hase Cricket Shoe" price={34.34} rating={5} />
-                    <Product id={5454445} image="https://m.media-amazon.com/images/I/51RQTEEK-YL._AC_SY200_.jpg" title="Men's CRI Hase Cricket Shoe" price={50.48} rating={4} />
+                    <Product id={345} image="https://m.media-amazon.com/images/I/41WiLcYLlrL.__AC_SY200_.jpg" title="Pigeon By Stovekraft Favourite Induction Base Aluminium Pressure Cooker with Outer Lid, 3 Litres (Silver)" price={1007.38} rating={3} />
+                    <Product id={4838} image="https://m.media-amazon.com/images/I/51ivRBHcH6L.__AC_SY200_.jpg" title="Del Monte Extra Virgin Olive Oil PET, 1L" price={400.28} rating={4} />
+                    <Product id={5424445} image="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Biss/2020/GW/PSS_260x260._SY304_CB429046195_.jpg" title="Masks, sanitizers & more" price={934.34} rating={5} />
+                    <Product id={5454445} image="https://m.media-amazon.com/images/I/51RQTEEK-YL._AC_SY200_.jpg" title="Cadbury 5 Star Chocolate Home Treats, 200g (Pack of 4)" price={150.48} rating={4} />
                 </div>
 
                 <div className="home__row">
-                    <Product id={35233} image="https://m.media-amazon.com/images/I/51kyYWvUMqL._AC_SY200_.jpg" title="Cadbury Dairy Milk Silk Chocolate Bar, 150g (Pack of 3)" price={667.28} rating={4} />
-                    <Product id={49988} image="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/Desktop_QC_tile_graphic_186x116_2._SY116_CB414480869_.jpg" title="Godrej 190 L 5 Star Inverter Direct-Cool Single Door Refrigerator (RD 1905 PTDI 53 GL BL, Glass Blue, Base stand with drawer, Inverter Compressor)" price={330.54} rating={4} />
+                    <Product id={35233} image="https://m.media-amazon.com/images/I/51kyYWvUMqL._AC_SY200_.jpg" title="Kore PVC 16-30 Kg Home Gym Set with One 3 Ft Curl and One Pair Dumbbell Rods with Gym Accessories" price={4667.28} rating={4} />
+                    <Product id={49988} image="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/Desktop_QC_tile_graphic_186x116_2._SY116_CB414480869_.jpg" title="IFB 7 Kg 5 Star Fully-Automatic Front Loading Washing Machine (Neo Diva VX 7 kg, White, Inbuilt Heater)" price={12330.54} rating={4} />
                 </div>
                 
                 <div className="home__footer">
@@ -97,7 +99,3 @@ const Home = () => {
 
 export default Home;
 
-// https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Fpp/GW_HPFF/1500X600-main._CB654554172_.jpg
-// https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonPay/Rajeshwari/March-21/Network_Hero_banners/HeroPC_1500x600_5._CB657961025_.jpg
-// https://images-eu.ssl-images-amazon.com/images/G/31/img21/Audio/unrec1499/Under1499_Gw_1500x600._CB661592357_.jpg
-// https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/vivo/april/SUD/GW/family/P45950210_WL_VIVO_SUD_DesktopTallHero_1500x600_2._CB654461873_.jpg

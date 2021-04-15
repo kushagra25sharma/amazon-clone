@@ -22,11 +22,11 @@ const Orders = () => {
 
     return (
         <div className="orders">
-            <h1>Your Orders</h1>
+            <h1>Your Orders:</h1>
             <div className="orders__order">
-                {orders?.map((order, index) => (
+                {orders.length ? orders?.map((order, index) => (
                     <Order key={index} order={order} />
-                ))}
+                )) : "No orders to display."}
             </div>
         </div>
     );

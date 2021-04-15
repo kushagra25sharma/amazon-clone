@@ -31,8 +31,9 @@ function Subtotal() {
             decimalScale={2}
             value={getBasketTotal(basket)}
             displayType={"text"}
-            thosandSeparator={true}
-            prefix={"$"}
+            thousandSpacing={"2s"}
+            thousandSeparator={true}
+            prefix={"₹"}
             />
             <button onClick={e => history.push("/payment")}>Procced to Checkout</button>
         </div>
