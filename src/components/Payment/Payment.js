@@ -91,7 +91,14 @@ const Payment = () => {
         setError(e.error ? e.error.message : "");
     }
 
+    if(!user){
+        return (
+            <h1>Please Sign In to place your order</h1>
+        );
+    }
+
     return (
+       // {user ? (<h1>Hello</h1>) : (<h1>Sign in</h1>)}
         <div className="payment">
             <div className="payment__container">
                 <h1>Checkout ({<Link to="/checkout">{basket?.length} items </Link>}) </h1>
