@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"]*/
 /* eslint-disable indent */
 /* eslint-disable eol-last */
 /* eslint-disable no-unused-vars */
